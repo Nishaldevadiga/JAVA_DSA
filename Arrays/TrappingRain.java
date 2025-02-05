@@ -1,10 +1,8 @@
 package Arrays;
 
-import java.util.*;
-
 public class TrappingRain{
 
-public static int TrappingRain(int[] arr){
+public static int TrappingRains(int[] arr){
       int leftmax[]=new int[arr.length];
      leftmax[0]=arr[0];
      int cumSum=0;
@@ -34,7 +32,7 @@ public static int TrappingRain(int[] arr){
     public static void main(String args[]){
     int arr[]={4,2,0,6,3,2,5};
 
-    int result=TrappingRain(arr);
+    int result=TrappingRains(arr);
 
     System.out.println(result);
 
