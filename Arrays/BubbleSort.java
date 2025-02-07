@@ -34,11 +34,33 @@ public static void SelectionSort(int arr[]){
     }
 }
 
+public static void InsertionSort(int arr[]){
+
+
+for(int i=1;i<arr.length-1;i++){
+    int curr=arr[i];
+    int prev=i-1;
+    while(prev>=0 && arr[prev]>arr[curr])
+    {
+        arr[prev+1]=arr[prev];
+        prev--;
+    }
+
+    //insertion
+    arr[prev+1]=curr;
+}
+for(int i=0;i<arr.length;i++){
+    System.out.print(arr[i]);
+}
+
+}
+
 
     public static void main(String args[]){
         int[] arr={4,5,3,1,2};
         BubbleSort(arr);
         SelectionSort(arr);
+        InsertionSort(arr);
     }
     
 }
