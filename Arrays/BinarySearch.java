@@ -27,7 +27,7 @@ public class BinarySearch {
     }
     public static void main(String args[]){
         int[] arr={1,2,3,4};
-        int result=BinarySearchs(arr,5);
+        int result=BinarySearchs(arr,3);
         if(result!=-1){
             System.out.println(result);
         }else{
