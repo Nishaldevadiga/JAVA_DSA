@@ -6,7 +6,7 @@ public class FirstOccurence {
         if(arr[i]==key){
             return i;
         }
-        if(i==arr.length-1){
+        if(i==arr.length){
             return -1; 
         }
 
@@ -14,9 +14,22 @@ public class FirstOccurence {
 
     }
 
+    public static int LastOccur(int arr[],int key, int i){
+
+        if(i==arr.length){
+            return -1;
+        }
+        int insFound=LastOccur(arr, key, i+1);
+        if(insFound == -1 && arr[i]==key){
+            return i;
+        }
+         
+         return insFound;
+    }
+
     public static void main(String[] args) {
-        int arr[]={1,5,6,7};
-        System.out.println(FirstOcuur(arr, 6, 0));
+        int arr[]={1,5,6,7,5};
+        System.out.println(LastOccur(arr, 5, 0));
     }
     
 }
