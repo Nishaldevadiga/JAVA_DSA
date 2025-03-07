@@ -5,16 +5,14 @@ public static void Subsets(String str, int i , String ans){
 
     //base case
     if(i==str.length()){
-        if(str.length()==0){
+        if(ans.isEmpty()){
             System.out.println("null");
-        }{
+        }else{
         System.out.println(ans);
         }
 
         return;
         }
-
-    
 
     
     //yes choice
