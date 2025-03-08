@@ -5,6 +5,7 @@ public class NQueens {
      public static void nQueens(char[][] board,int row){
            //edge case
            if(row==board.length){
+            count++;
             PrintBoard(board);
             return;
            }
@@ -54,9 +55,11 @@ public class NQueens {
             System.out.println();
            }
      }
+
+     public static int count=0;
      
     public static void main(String[] args) {
-        int n=5;
+        int n=4;
         char board[][]=new char[n][n];
         //initialize
         for(int i=0;i<n;i++){
@@ -65,6 +68,7 @@ public class NQueens {
             }
         }  
         nQueens(board, 0);
+        System.out.println("Total ways for nQueens is "+count);
     }
     
 }
