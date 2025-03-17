@@ -32,6 +32,11 @@ public class ArrayListDemo {
         for(int i=0;i<list.size();i++){
             System.out.print(list.get(i)+" ");
         }
+ System.out.println();
+        //reverse
+        for(int i=list.size()-1;i>=0;i--){
+            System.out.print(list.get(i)+" ");
+        }
        
     }
     
