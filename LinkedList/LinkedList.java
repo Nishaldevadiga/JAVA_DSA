@@ -46,12 +46,30 @@ public class LinkedList {
 
            
         }
+//add at mid
+        public static void addMid(int data, int idx){
+            Node addNewNode=new Node(data);
+
+            Node temp=head;
+            int i=0;
+
+            while(i<idx-1){
+                temp=temp.next;
+                i++;
+            }
+
+             addNewNode.next=temp.next;
+             temp.next=addNewNode;
+
+        }
     
         public static void main(String[] args) {
             LinkedList ll=new LinkedList();
     
             ll.head=new Node(1);
             ll.head.next=new Node(2);
+
+        
         
     }
     
