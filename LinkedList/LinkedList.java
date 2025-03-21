@@ -50,6 +50,12 @@ public class LinkedList {
         public static void addMid(int data, int idx){
             Node addNewNode=new Node(data);
 
+            if(idx==0){
+                addNewNode.next=head;
+                head=addNewNode;
+                return;
+            }
+
             Node temp=head;
             int i=0;
 
@@ -62,12 +68,22 @@ public class LinkedList {
              temp.next=addNewNode;
 
         }
-    
+    public static void print(){
+        Node temp=head;
+
+        while(temp!=null){
+            System.out.println(temp.data);
+            temp=temp.next;
+        }
+    }
         public static void main(String[] args) {
             LinkedList ll=new LinkedList();
     
             ll.head=new Node(1);
             ll.head.next=new Node(2);
+
+            addMid(7,0);
+            print();
 
         
         
