@@ -154,6 +154,22 @@ class LinkedList {
 
     }
 
+    public void Reverse(){
+
+        Node prev=null;
+        Node curr=tail=head;
+        Node next=null;
+
+       while(curr!=null){
+        next=curr.next;
+        curr.next=prev;
+        prev=curr;
+        curr=next;
+       }
+
+       head=prev;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
 
@@ -168,5 +184,7 @@ class LinkedList {
         System.out.println();
         System.out.println("Size= " + ll.size);
         System.out.println(ll.ReSearch(1));
+        ll.Reverse();
+        ll.print();
     }
 }
