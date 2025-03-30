@@ -112,6 +112,21 @@ temp=temp.next;
     temp.next=newNode;
     
     }
+
+    public int Search(int key){
+          
+        Node temp=head;
+        int i=0;
+
+        while(temp!=null){
+            if(temp.data==key){
+                return i;
+            }
+            temp=temp.next;
+            i++;
+        }
+        return -1;
+    }
     public static void main(String[] args) {
         LinkedList ll=new LinkedList();
         
@@ -125,5 +140,6 @@ temp=temp.next;
         ll.print();
         System.out.println();
         System.out.println("Size= "+ll.size);
+        System.out.println(ll.Search(2));
     }
 }
