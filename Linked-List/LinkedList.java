@@ -130,6 +130,30 @@ class LinkedList {
         return -1;
     }
 
+    public int  ReSearch(int key){
+        return helper(head,key);
+    }
+
+    public int helper(Node head, int key){
+
+        if(head==null){
+            return -1;
+        }
+
+        if(head.data==key){
+            return 0;
+        }
+
+        int indx=helper(head.next,key);
+
+        if(indx==-1){
+            return -1;
+        }
+
+        return indx+1;
+
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
 
@@ -143,6 +167,6 @@ class LinkedList {
         ll.print();
         System.out.println();
         System.out.println("Size= " + ll.size);
-        System.out.println(ll.Search(2));
+        System.out.println(ll.ReSearch(1));
     }
 }
