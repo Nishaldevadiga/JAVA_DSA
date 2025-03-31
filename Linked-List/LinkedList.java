@@ -205,16 +205,15 @@ class LinkedList {
 
     public boolean Palindrome() {
 
-if(head==null||head.next==null){
-    return true;
-}
+        if (head == null || head.next == null) {
+            return true;
+        }
 
-      
-//find mid
+        // find mid
         Node midNode = findMid(head);
         Node prev = null;
         Node curr = midNode;
-  // reverse 2 half
+        // reverse 2 half
         while (curr != null) {
             Node next = curr.next;
             curr.next = prev;
@@ -236,47 +235,56 @@ if(head==null||head.next==null){
         return true;
     }
 
-    public boolean detectcycle(){
-         //floyds cycle algorithm
+    public boolean detectcycle() {
+        // floyds cycle algorithm
 
-        Node fast=head;
-        Node slow=head;
+        Node fast = head;
+        Node slow = head;
 
-        while(fast!=null && fast.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
-            
-            if(fast==slow){
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (fast == slow) {
                 return true;
             }
-            
+
         }
-        
+
         return false;
     }
+
+ 
+
+    public void RemoveCycle() {
+
+       
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(3);
+        ll.tail.next = ll.head; 
+        // // ll.add(1, 7);
+        // ll.print();
+        // System.out.println();
+        // // ll.removeFirst();
+        // // ll.removeLast();
+        // ll.print();
+        // System.out.println();
+        // System.out.println("Size= " + ll.size);
+        // System.out.println(ll.ReSearch(1));
+        // ll.Reverse();
+        // ll.print();
+        // System.out.println();
+        // ll.RemoveNodeEnd(1);
+        // ll.print();
+        // System.out.println();
+       
+        //System.out.println(ll.Palindrome());
 
-        ll.addFirst(4);
-        ll.addLast(6);
-        ll.addLast(6);
-        ll.addLast(4);
-    //     // ll.add(1, 7);
-    //     ll.print();
-    //     System.out.println();
-    //     // ll.removeFirst();
-    //    // ll.removeLast();
-    //     ll.print();
-    //     System.out.println();
-    //     System.out.println("Size= " + ll.size);
-    //     System.out.println(ll.ReSearch(1));
-    //     ll.Reverse();
-    //     ll.print();
-    //     System.out.println();
-    //     ll.RemoveNodeEnd(1);
-    //     ll.print();
-    //     System.out.println();
-    ll.print();
-        System.out.println(ll.Palindrome());
+        ll.RemoveCycle();
     }
 }
