@@ -1,7 +1,7 @@
 
 class LinkedList {
 
-    public class Node {
+    public static class Node {
         int data;
         Node next;
 
@@ -254,24 +254,47 @@ class LinkedList {
         return false;
     }
 
- 
-
     public void RemoveCycle() {
+        // detecting cycle
+        Node slow = head;
+        Node fast = head;
+        boolean cycle=false;
 
-       
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                cycle=true;
+                break;
+            }
+        }
+        if(cycle==false){
+            return;
+        }
+
+        slow = head;
+        Node prev = null;
+        while (slow != fast) {
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+        prev.next=null;
     }
 
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
-        ll.addLast(1);
-        ll.addLast(2);
-        ll.addLast(3);
-        ll.tail.next = ll.head; 
-        // // ll.add(1, 7);
+         LinkedList ll = new LinkedList();
+        // ll.addLast(1);
+        // ll.addLast(2);
+        // ll.addLast(3);
+        // ll.addLast(7);
+        // ll.head.next.next = ll.head;
+        // ll.add(1, 7);
         // ll.print();
         // System.out.println();
-        // // ll.removeFirst();
-        // // ll.removeLast();
+        // ll.removeFirst();
+        // ll.removeLast();
         // ll.print();
         // System.out.println();
         // System.out.println("Size= " + ll.size);
@@ -282,9 +305,16 @@ class LinkedList {
         // ll.RemoveNodeEnd(1);
         // ll.print();
         // System.out.println();
-       
-        //System.out.println(ll.Palindrome());
 
+        // System.out.println(ll.Palindrome());
+    head=new Node(1);
+    Node temp=new Node(2);
+    head.next=temp;
+    head.next.next=new Node(3);
+    head.next.next.next=temp;
+    System.out.println(ll.detectcycle());
         ll.RemoveCycle();
+        System.out.println(ll.detectcycle());
+  
     }
 }
