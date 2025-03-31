@@ -195,6 +195,7 @@ class LinkedList {
 
         ll.addFirst(1);
         ll.addLast(2);
+     
         ll.add(1, 7);
         ll.print();
         System.out.println();
