@@ -130,102 +130,135 @@ class LinkedList {
         return -1;
     }
 
-    public int  ReSearch(int key){
-        return helper(head,key);
+    public int ReSearch(int key) {
+        return helper(head, key);
     }
 
-    public int helper(Node head, int key){
+    public int helper(Node head, int key) {
 
-        if(head==null){
+        if (head == null) {
             return -1;
         }
 
-        if(head.data==key){
+        if (head.data == key) {
             return 0;
         }
 
-        int indx=helper(head.next,key);
+        int indx = helper(head.next, key);
 
-        if(indx==-1){
+        if (indx == -1) {
             return -1;
         }
 
-        return indx+1;
+        return indx + 1;
 
     }
 
-    public void Reverse(){
+    public void Reverse() {
 
-        Node prev=null;
-        Node curr=tail=head;
-        Node next=null;
+        Node prev = null;
+        Node curr = tail = head;
+        Node next = null;
 
-       while(curr!=null){
-        next=curr.next;
-        curr.next=prev;
-        prev=curr;
-        curr=next;
-       }
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
 
-       head=prev;
+        head = prev;
     }
 
-    public void RemoveNodeEnd(int indx){
-      //size-indx-1
+    public void RemoveNodeEnd(int indx) {
+        // size-indx-1
 
-      if(size==indx){
-        head=head.next;
+        if (size == indx) {
+            head = head.next;
+            return;
+        }
+
+        int i = 0;
+        Node temp = head;
+        while (i < size - indx - 1) {
+            temp = temp.next;
+            i++;
+        }
+
+        temp.next = temp.next.next;
         return;
-      }
 
-      int i=0;
-      Node temp =head;
-      while(i<size-indx-1){
-         temp=temp.next;
-         i++;
-      }
- 
-      temp.next=temp.next.next;
-      return;
-      
     }
 
-    public 
-    Node findMid(Node head){
+    public Node findMid(Node head) {
 
-        //slow fast
-        Node slow=head;
-        Node fast=head;
+        // slow fast
+        Node slow = head;
+        Node fast = head;
 
-        while(fast!=null || fast.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
         return slow;
+    }
+
+    public boolean Palindrome() {
+
+if(head==null||head.next==null){
+    return true;
+}
+
+      
+//find mid
+        Node midNode = findMid(head);
+        Node prev = null;
+        Node curr = midNode;
+  // reverse 2 half
+        while (curr != null) {
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+
+        }
+
+        // check first and second half
+        Node left = head;
+        Node right = prev;
+        while (right != null) {
+            if (left.data != right.data) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
     }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
 
-        ll.addFirst(1);
-        ll.addLast(2);
-        ll.addLast(3);
-        ll.addLast(2);
-        ll.addLast(3);
-        ll.addLast(7);
-       // ll.add(1, 7);
-        ll.print();
-        System.out.println();
-        // ll.removeFirst();
-        ll.removeLast();
-        ll.print();
-        System.out.println();
-        System.out.println("Size= " + ll.size);
-        System.out.println(ll.ReSearch(1));
-        ll.Reverse();
-        ll.print();
-        System.out.println();
-        ll.RemoveNodeEnd(1);
-        ll.print();
+        ll.addFirst(4);
+        ll.addLast(6);
+        ll.addLast(6);
+        ll.addLast(4);
+    //     // ll.add(1, 7);
+    //     ll.print();
+    //     System.out.println();
+    //     // ll.removeFirst();
+    //    // ll.removeLast();
+    //     ll.print();
+    //     System.out.println();
+    //     System.out.println("Size= " + ll.size);
+    //     System.out.println(ll.ReSearch(1));
+    //     ll.Reverse();
+    //     ll.print();
+    //     System.out.println();
+    //     ll.RemoveNodeEnd(1);
+    //     ll.print();
+    //     System.out.println();
+    ll.print();
+        System.out.println(ll.Palindrome());
     }
 }
