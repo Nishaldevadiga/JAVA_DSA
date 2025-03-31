@@ -236,6 +236,24 @@ if(head==null||head.next==null){
         return true;
     }
 
+    public boolean detectcycle(){
+         //floyds cycle algorithm
+
+        Node fast=head;
+        Node slow=head;
+
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            
+            if(fast==slow){
+                return true;
+            }
+            
+        }
+        
+        return false;
+    }
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
 
