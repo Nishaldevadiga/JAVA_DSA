@@ -170,6 +170,26 @@ class LinkedList {
        head=prev;
     }
 
+    public void RemoveNodeEnd(int indx){
+      //size-indx-1
+
+      if(size==indx){
+        head=head.next;
+        return;
+      }
+
+      int i=0;
+      Node temp =head;
+      while(i<size-indx-1){
+         temp=temp.next;
+         i++;
+      }
+ 
+      temp.next=temp.next.next;
+      return;
+      
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
 
@@ -185,6 +205,9 @@ class LinkedList {
         System.out.println("Size= " + ll.size);
         System.out.println(ll.ReSearch(1));
         ll.Reverse();
+        ll.print();
+        System.out.println();
+        ll.RemoveNodeEnd(1);
         ll.print();
     }
 }
