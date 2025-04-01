@@ -349,6 +349,63 @@ public Node getMid(Node head){
    return mergeLL.next;
     }
 
+    public void zigzag(){
+        if(head==null || head.next==null){
+            return;
+        }
+
+        //find the mid 
+
+        Node slow=head;
+        Node fast=head.next;
+
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+
+        Node midNode=slow;
+
+        //break into halves and reverse the second half
+
+  
+ 
+        Node prev=null;
+        Node curr=midNode.next;
+        midNode.next=null;
+        Node next;
+
+        while(curr!=null){
+
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+
+               //combine zigzag
+        Node rightNode=prev;
+        Node leftNode=head;
+        Node nextR, nextL;
+
+    
+        while(rightNode!=null&&leftNode!=null){
+            nextL=leftNode.next;
+             nextR=rightNode.next;
+            
+            leftNode.next=rightNode;
+            if(nextL==null)break;
+            rightNode.next=nextL;
+
+            leftNode=nextL;
+            rightNode=nextR;
+        }
+
+ 
+
+
+    }
+
     public static void main(String[] args) {
          LinkedList ll = new LinkedList();
         // ll.addLast(1);
