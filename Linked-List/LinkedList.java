@@ -1,3 +1,4 @@
+import DivideConquer.MergeSort;
 
 class LinkedList {
 
@@ -282,6 +283,71 @@ class LinkedList {
         }
         prev.next=null;
     }
+public Node getMid(Node head){
+
+    Node slow=head;
+    Node fast=head.next;
+
+    while(fast!=null && fast.next!=null){
+
+        slow=slow.next;
+        fast=fast.next.next;
+    }
+
+    return slow;
+}
+    public Node MergeSort(Node head){
+
+        if(head==null || head.next==null){
+            return head;
+        }
+
+        //find the mid
+        Node mid=getMid(head);
+
+        //find the two halves and sort them
+
+        Node righthead=mid.next;
+        mid.next=null;
+
+        //recursion
+        Node rightNode=MergeSort(righthead);
+        Node leftNode=MergeSort(head);
+
+        //merge
+       return Merge(leftNode,rightNode);
+    }
+    public Node Merge(Node head1,Node head2){
+  Node mergeLL=new Node(-1);
+
+  Node temp=mergeLL;
+        
+   while(head1!=null && head2!=null){
+    if(head1.data<head2.data){
+         temp.next=head1;
+         head1=head1.next;
+         temp=temp.next;
+    }else{
+        temp.next=head2;
+         head2=head2.next;
+         temp=temp.next;
+    }
+   }
+
+   while (head1!=null) {
+    temp.next=head1;
+    head1=head1.next;
+    temp=temp.next;
+   }
+
+   while(head2!=null){
+    temp.next=head2;
+         head2=head2.next;
+         temp=temp.next;
+   }
+
+   return mergeLL.next;
+    }
 
     public static void main(String[] args) {
          LinkedList ll = new LinkedList();
@@ -307,14 +373,14 @@ class LinkedList {
         // System.out.println();
 
         // System.out.println(ll.Palindrome());
-    head=new Node(1);
-    Node temp=new Node(2);
-    head.next=temp;
-    head.next.next=new Node(3);
-    head.next.next.next=temp;
-    System.out.println(ll.detectcycle());
-        ll.RemoveCycle();
-        System.out.println(ll.detectcycle());
+    // head=new Node(1);
+    // Node temp=new Node(2);
+    // head.next=temp;
+    // head.next.next=new Node(3);
+    // head.next.next.next=temp;
+    // System.out.println(ll.detectcycle());
+    //     ll.RemoveCycle();
+    //     System.out.println(ll.detectcycle());
   
     }
 }
