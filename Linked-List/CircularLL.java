@@ -68,6 +68,29 @@ public class CircularLL {
 
     }
 
+    public static void deleteLast() {
+        if (head == null) {
+            System.out.println("empty");
+            return;
+
+        }
+        if (head == tail) {
+            head = tail = null;
+            size--;
+            return;
+        } else {
+            Node prev = head;
+            while (prev.next != tail) {
+                prev = prev.next;
+            }
+
+            tail = prev;
+            tail.next = head;
+            size--;
+
+        }
+    }
+
     public static void print() {
         if (head == null) {
             System.out.println("List is empty");
@@ -92,5 +115,8 @@ public class CircularLL {
         ll.print();
         ll.deleteFirst();
         ll.print();
+        ll.deleteLast();
+        ll.print();
+
     }
 }
