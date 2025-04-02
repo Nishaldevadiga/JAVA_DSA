@@ -100,10 +100,6 @@ public class DoublyLink {
             System.out.println("empty list");
             return;
         }
-        if (size == 1) {
-            System.out.println("Invalid size");
-            return;
-        }
 
         Node curr = head;
         Node prev = null;
@@ -114,18 +110,13 @@ public class DoublyLink {
             curr.next = prev;
             curr.prev = next;
 
-            prev=curr;
-            curr=next;
+            prev = curr;
+            curr = next;
         }
 
-        head=prev;
+        tail = head;
+        head = prev;
 
-        if(head!=null){
-            tail=head;
-            while(tail!=null){
-                tail=tail.next;
-            }
-        }
     }
 
     public static void main(String[] args) {
