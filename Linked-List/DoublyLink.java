@@ -119,6 +119,13 @@ public class DoublyLink {
         }
 
         head=prev;
+
+        if(head!=null){
+            tail=head;
+            while(tail!=null){
+                tail=tail.next;
+            }
+        }
     }
 
     public static void main(String[] args) {
