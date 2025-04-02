@@ -45,6 +45,29 @@ public class DoublyLink {
         }
     }
 
+    public void addLast(int data){
+
+Node newNode=new Node(data);
+
+    }
+
+    public void removeFirst(){
+        if(head==null){
+            System.out.println("List is empty");
+            return;
+        }
+
+        if(size==1){
+            head=tail=null;
+            size--;
+            return;
+        }
+
+        head=head.next;
+        head.prev=null;
+        size--;
+    }
+
     public static void main(String[] args) {
         DoublyLink ll=new DoublyLink();
 
@@ -52,7 +75,7 @@ public class DoublyLink {
         ll.addFirst(2);
         ll.addFirst(1);
 
-
+ll.removeFirst();
         ll.print();
         System.err.println("size= "+size);
 
