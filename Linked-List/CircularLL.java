@@ -1,6 +1,6 @@
 public class CircularLL {
 
-    class Node {
+    public static class Node {
 
         int data;
         Node next;
@@ -23,16 +23,39 @@ public class CircularLL {
             tail.next = head;
             size++;
             return;
-        }
+        }else{
 
         newNode.next = head;
         head = newNode;
         tail.next = newNode;
         size++;
+        }
 
     }
 
+    public static void addLast(int data){
+        Node newNode= new Node(data);
+
+        if(head==null){
+            head=tail=newNode;
+            tail.next=head;
+            size++;
+            return;
+            
+        }else{
+
+        tail.next=newNode;
+        tail=newNode;
+        tail.next=head;
+        size++;
+        }
+    }
+
     public static void print() {
+        if(head==null){
+            System.out.println("List is empty");
+            return;
+        }
         Node temp = head;
 
         do {
@@ -47,6 +70,8 @@ public class CircularLL {
 
         ll.addFirst(2);
         ll.addFirst(1);
+        ll.print();
+        ll.addLast(3);
         ll.print();
 
     }
