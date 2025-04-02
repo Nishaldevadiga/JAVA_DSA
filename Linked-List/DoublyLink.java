@@ -76,6 +76,24 @@ public class DoublyLink {
         size--;
     }
 
+    public void removeLast(){
+        if(head==null){
+            System.out.println("Empty list");
+            return;
+        }
+        if(size==1){
+            head=tail=null;
+            size--;
+            return;
+        }
+
+        tail=tail.prev;
+        if(tail!=null){
+        tail.next=null;
+        }
+        size--;
+    }
+
     public static void main(String[] args) {
         DoublyLink ll = new DoublyLink();
 
@@ -89,6 +107,10 @@ public class DoublyLink {
         ll.addLast(4);
         ll.print();
         System.err.println("size= " + size);
+        ll.removeLast();
+        ll.print();
+        System.err.println("size= " + size);
+
 
     }
 
