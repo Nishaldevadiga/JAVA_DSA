@@ -34,18 +34,19 @@ public class CircularLL {
     public static void print(){
         Node temp=head;
 
-        while(temp!=null){
-            System.out.println(temp.data);
+        do{
+            System.out.print(temp.data+"->");
             temp=temp.next;
-            return;
-        }
+        }while(temp!=head);
+        System.out.println("(Head)");
     }
 
     public static void main(String[] args) {
         CircularLL ll=new CircularLL();
 
+        ll.addFirst(2);
         ll.addFirst(1);
-        ll.print();
+      ll.print();
 
 
     }
