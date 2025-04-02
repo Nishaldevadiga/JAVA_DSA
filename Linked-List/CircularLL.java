@@ -23,36 +23,53 @@ public class CircularLL {
             tail.next = head;
             size++;
             return;
-        }else{
+        } else {
 
-        newNode.next = head;
-        head = newNode;
-        tail.next = newNode;
-        size++;
+            newNode.next = head;
+            head = newNode;
+            tail.next = newNode;
+            size++;
         }
 
     }
 
-    public static void addLast(int data){
-        Node newNode= new Node(data);
+    public static void addLast(int data) {
+        Node newNode = new Node(data);
 
-        if(head==null){
-            head=tail=newNode;
-            tail.next=head;
+        if (head == null) {
+            head = tail = newNode;
+            tail.next = head;
             size++;
             return;
-            
-        }else{
 
-        tail.next=newNode;
-        tail=newNode;
-        tail.next=head;
-        size++;
+        } else {
+
+            tail.next = newNode;
+            tail = newNode;
+            tail.next = head;
+            size++;
         }
+    }
+
+    public static void deleteFirst() {
+        if (head == null) {
+            System.out.println("list is empty");
+            return;
+        }
+        if (size == 1) {
+            head = tail = null;
+            size--;
+            return;
+        } else {
+            tail.next = head.next;
+            head = head.next;
+            size--;
+        }
+
     }
 
     public static void print() {
-        if(head==null){
+        if (head == null) {
             System.out.println("List is empty");
             return;
         }
@@ -73,6 +90,7 @@ public class CircularLL {
         ll.print();
         ll.addLast(3);
         ll.print();
-
+        ll.deleteFirst();
+        ll.print();
     }
 }
