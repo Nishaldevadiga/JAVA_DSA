@@ -76,22 +76,49 @@ public class DoublyLink {
         size--;
     }
 
-    public void removeLast(){
-        if(head==null){
+    public void removeLast() {
+        if (head == null) {
             System.out.println("Empty list");
             return;
         }
-        if(size==1){
-            head=tail=null;
+        if (size == 1) {
+            head = tail = null;
             size--;
             return;
         }
 
-        tail=tail.prev;
-        if(tail!=null){
-        tail.next=null;
+        tail = tail.prev;
+        if (tail != null) {
+            tail.next = null;
         }
         size--;
+    }
+
+    public void Reverse() {
+
+        if (head == null) {
+            System.out.println("empty list");
+            return;
+        }
+        if (size == 1) {
+            System.out.println("Invalid size");
+            return;
+        }
+
+        Node curr = head;
+        Node prev = null;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            curr.prev = next;
+
+            prev=curr;
+            curr=next;
+        }
+
+        head=prev;
     }
 
     public static void main(String[] args) {
@@ -110,7 +137,9 @@ public class DoublyLink {
         ll.removeLast();
         ll.print();
         System.err.println("size= " + size);
-
+        System.out.println("_____________");
+        ll.Reverse();
+        ll.print();
 
     }
 
