@@ -116,6 +116,7 @@ public class CircularLL {
         ll.deleteFirst();
         ll.print();
         ll.deleteLast();
+        System.out.println();
         ll.print();
 
     }
