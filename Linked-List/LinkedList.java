@@ -403,6 +403,22 @@ class LinkedList {
         }
 
     }
+    public static void RemoveDup(){
+     if(head==null){
+        System.out.println("list is empty");
+     }
+    
+     Node temp=head;
+
+     while(temp!=null && temp.next!=null){
+        if(temp.data==temp.next.data){
+            temp.next=temp.next.next;
+        }else{
+            temp=temp.next;
+        }
+     }
+    
+    }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
@@ -436,6 +452,8 @@ class LinkedList {
         // System.out.println(ll.detectcycle());
         // ll.RemoveCycle();
         // System.out.println(ll.detectcycle());
+         ll.RemoveDup();
+        ll.print();
 
     }
 }
