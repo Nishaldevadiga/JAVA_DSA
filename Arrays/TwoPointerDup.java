@@ -10,6 +10,10 @@ public static int RemoveDup(int arr[]){
             arr[i]=arr[j];
         }
     }
+
+    for(int k=0;k<i;k++){
+        System.out.println(arr[k]+" ");
+    }
     return i+1;
 }
     public static void main(String args[]){
