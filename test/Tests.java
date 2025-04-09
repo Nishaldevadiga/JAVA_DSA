@@ -1,22 +1,18 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Tests {
 
 public static void RemoveDup(ArrayList<Integer> list){
 
-    ArrayList<Integer> nlist= new ArrayList<>();
+Set<Integer> set=new HashSet<>(list);
+List<Integer>  uniqueList=new ArrayList<>(set);
 
-    for(int i=0;i<list.size()-1;i++){
-        if(list.get(i)!=list.get(i+1)){
-            nlist.add(i);
-        }
-    }
-    for(int i=0;i<nlist.size();i++){
-        System.out.println(nlist.get(i));
-    }
-
+System.out.println(uniqueList);
 }
 
     public static void main(String[] args) {
@@ -27,6 +23,7 @@ public static void RemoveDup(ArrayList<Integer> list){
         list.add(1);
         list.add(2);
         RemoveDup(list);
+       
     }
     
 }
