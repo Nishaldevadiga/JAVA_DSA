@@ -9,13 +9,12 @@ public class Maxpointsliding {
         int lsum = 0;
         int rsum = 0;
         int rightidx = arr.length - 1;
-        int Maxsum = 0;
-
         for (int i = 0; i <= r; i++) {
             lsum += arr[i];
         }
+        int Maxsum = lsum;
 
-        while (r>0) {
+        while (r>=0) {
             lsum = lsum - arr[r];
             r--;
             rsum = rsum + arr[rightidx];
