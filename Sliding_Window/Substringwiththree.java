@@ -20,6 +20,8 @@ public class Substringwiththree {
 
     public static void main(String[] args) {
         String str="bbacba";
+        int result=NumberofSub(str);
+        System.out.print(result);
 
 
     }
