@@ -10,7 +10,7 @@ public class Moores {
         for(int i=0;i<arr.length;i++){
             map.put(arr[i],map.getOrDefault(arr[i],0 )+1);
 
-            if((map.getOrDefault(arr[i], 0)+1)>arr.length/2){
+            if(map.get(arr[i])>arr.length/2){
                 return arr[i];
             }
         }
