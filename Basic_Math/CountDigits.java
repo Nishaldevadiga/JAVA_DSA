@@ -3,17 +3,15 @@ package Basic_Math;
 public class CountDigits {
 
     public static int count(int num){
-        int count=0;
-        
-        while(num>0){
-            count++;
-            num=num/10;
+        if(num==0){
+            return 1;
         }
-        return count;
+        return (int)Math.floor(Math.log10(Math.abs(num)))+1;
+
     }
 
     public static void main(String[] args) {
-        System.out.print(count(778));
+        System.out.print(count(77568));
     }
     
 }
