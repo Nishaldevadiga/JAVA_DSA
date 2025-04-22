@@ -27,7 +27,7 @@ public class MaxActivities {
 
     public static void main(String[] args) {
         int[] start = { 1, 3, 2, 5 };
-        int[] end = { 2, 4, 3, 6 };
+        int[] end = { 2, 3, 4, 6 };
 
         System.out.print(countMax(start, end));
     }
