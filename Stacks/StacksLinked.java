@@ -48,15 +48,14 @@ public class StacksLinked {
 
     public static void main(String[] args) {
 
-
-        stack s=new stack();
+        stack s = new stack();
         s.Push(1);
         s.Push(2);
         s.Push(3);
 
         s.pop();
 
-        while(!s.isEmpty()){
+        while (!s.isEmpty()) {
             System.out.println(s.peek());
             s.pop();
         }
