@@ -4,23 +4,23 @@ import java.util.Stack;
 
 public class duppara {
 
-    public static boolean DupPara(String str){
-        Stack<Character> s =new Stack<>();
-        for(int i=0;i<str.length();i++){
-            char ch=str.charAt(i);
+    public static boolean DupPara(String str) {
+        Stack<Character> s = new Stack<>();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
 
-            if(ch==')'){
-                int count=0;
-                while(s.peek()!='('){
+            if (ch == ')') {
+                int count = 0;
+                while (s.peek() != '(') {
                     s.pop();
                     count++;
                 }
-                if(count<1){
+                if (count < 1) {
                     return true;
-                }else{
+                } else {
                     s.pop();
                 }
-            }else{
+            } else {
                 s.push(ch);
             }
         }
@@ -29,10 +29,10 @@ public class duppara {
 
     public static void main(String[] args) {
 
-        String str="((a+b))";
+        String str = "((a+b))";
 
         System.out.println(DupPara(str));
-        
+
     }
-    
+
 }
