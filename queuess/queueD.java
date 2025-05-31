@@ -23,8 +23,6 @@ public class queueD {
             }
         }
 
-    
-
         public static int pop() {
 
             if (isEmpty()) {
@@ -52,6 +50,7 @@ public class queueD {
             return top;
 
         }
+
         public static int peek() {
 
             if (isEmpty()) {
@@ -74,16 +73,15 @@ public class queueD {
 
         }
 
-
     }
 
     public static void main(String[] args) {
-        stack s =new stack();
+        stack s = new stack();
         s.add(1);
         s.add(2);
         s.add(3);
 
-        while(!s.isEmpty()){
+        while (!s.isEmpty()) {
             System.out.println(s.peek());
             s.pop();
         }
