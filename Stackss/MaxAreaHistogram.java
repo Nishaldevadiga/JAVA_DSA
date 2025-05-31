@@ -59,8 +59,11 @@ return nsl;
         int arr[] = { 2, 1, 5, 6, 2, 3 };
         int nsr[]=nextsmallright(arr);
         int nsl[]=nextsmalleft(arr);
+        for(int i=0;i<nsr.length;i++){
+            System.out.print(" "+nsr[i]);
+        }
         int result=CalcMaxArea(arr, nsl, nsr);
-        System.out.print(result)
+        System.out.println(result);
 ;
     }
 
