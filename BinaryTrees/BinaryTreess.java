@@ -29,6 +29,16 @@ public class BinaryTreess {
 
             return newNode;
         }
+
+        public static void PreOrder(Node root){
+            if(root==null){
+              System.out.print(-1+" ");
+              return;
+            }
+            System.out.print(root.data+"  ");
+            PreOrder(root.left);
+            PreOrder(root.right);
+        }
     }
 
     public static void main(String[] args) {
@@ -36,7 +46,8 @@ public class BinaryTreess {
 
         BinaryTree tree = new BinaryTree();
         Node root = tree.BuildTree(nodes);
-        System.out.print(root.data);
+        //System.out.print(root.data);
+        tree.PreOrder(root);
     }
 
 }
