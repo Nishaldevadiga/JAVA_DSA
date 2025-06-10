@@ -26,7 +26,6 @@ public class BinaryTreess {
             Node newNode = new Node(nodes[idx]);
             newNode.left = BuildTree(nodes);
             newNode.right = BuildTree(nodes);
-
             return newNode;
         }
 
