@@ -37,7 +37,6 @@ public class BinaryTreess {
         BinaryTree tree = new BinaryTree();
         Node root = tree.BuildTree(nodes);
         System.out.print(root.data);
-
     }
 
 }
