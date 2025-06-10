@@ -3,6 +3,8 @@ package BinaryTrees;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import Arrays.sum;
+
 public class BinaryTreess {
 
     static class Node {
@@ -110,6 +112,17 @@ public class BinaryTreess {
 
             return tcount;
         }
+
+        public static int sumNodes(Node root){
+            if(root==null){
+                return 0;
+            }
+            int sumL=sumNodes(root.left);
+            int sumR=sumNodes(root.right);
+
+            int tsum=sumL+sumR+root.data;
+            return tsum;
+        }
     }
 
     public static void main(String[] args) {
@@ -126,6 +139,8 @@ public class BinaryTreess {
         System.out.println(result);
         int tcount=tree.countNode(root);
         System.out.println(tcount);
+        int sum=tree.sumNodes(root);
+         System.out.println(sum);
     }
 
 }
