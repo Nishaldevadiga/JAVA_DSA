@@ -38,7 +38,17 @@ public class BinaryTreess {
             PreOrder(root.left);
             PreOrder(root.right);
         }
+          public static void Inorder(Node root){
+        if(root==null){
+            return;
+        }
+        Inorder(root.left);
+        System.out.print(root.data+" ");
+        Inorder(root.right);
     }
+    }
+
+  
 
     public static void main(String[] args) {
         int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
@@ -46,7 +56,8 @@ public class BinaryTreess {
         BinaryTree tree = new BinaryTree();
         Node root = tree.BuildTree(nodes);
         //System.out.print(root.data);
-        tree.PreOrder(root);
+        //tree.PreOrder(root);
+        tree.Inorder(root);
     }
 
 }
