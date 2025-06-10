@@ -46,6 +46,14 @@ public class BinaryTreess {
         System.out.print(root.data+" ");
         Inorder(root.right);
     }
+    public static void postorder(Node root){
+        if(root==null){
+            return;
+        }
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print(root.data+" ");
+    }
     }
 
   
@@ -57,7 +65,8 @@ public class BinaryTreess {
         Node root = tree.BuildTree(nodes);
         //System.out.print(root.data);
         //tree.PreOrder(root);
-        tree.Inorder(root);
+        //tree.Inorder(root);
+        tree.postorder(root);
     }
 
 }
