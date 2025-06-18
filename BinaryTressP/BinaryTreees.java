@@ -96,6 +96,18 @@ public class BinaryTreees {
             }
 
         }
+
+        public static int height(Node root){
+            if(root==null){
+                return 0;
+            }
+
+            int lh=height(root.left);
+            int rh=height(root.right);
+            int height=Math.max(lh, rh)+1;
+
+            return height;
+        }
     }
 
     public static void main(String[] args) {
@@ -106,7 +118,9 @@ public class BinaryTreees {
         // tree.PreOrder(root);
         // tree.Inorder(root);
         // tree.postOrder(root);
-        tree.LevelOrder(root);
+        //tree.LevelOrder(root);
+       int result= tree.height(root);
+       System.out.print(result);
 
     }
 }
