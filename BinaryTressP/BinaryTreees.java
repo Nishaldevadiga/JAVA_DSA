@@ -118,6 +118,15 @@ public class BinaryTreees {
        int tcount=lcount+rcount+1;
         return tcount;
     }
+    public static int sum(Node root){
+        if(root==null){
+            return 0;
+        }
+        int lsum=sum(root.left);
+        int rsum=sum(root.right);
+        int tsum=lsum+rsum+root.data;
+        return tsum;
+    }
 
     public static void main(String[] args) {
         int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
@@ -132,7 +141,7 @@ public class BinaryTreees {
        System.out.println(result);
 
        System.out.println("------------------------------------------");
-       System.out.println(count(root));
+       System.out.println(sum(root));
          
 
 
