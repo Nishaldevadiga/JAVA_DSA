@@ -1,5 +1,10 @@
 package BinaryTressP;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
+import Sliding_Window.longestsubstring;
+
 public class BinaryTreees {
 
     static class Node {
@@ -51,13 +56,45 @@ public class BinaryTreees {
             Inorder(root.right);
         }
 
-        public static void postOrder(Node root){
-            if(root==null){
+        public static void postOrder(Node root) {
+            if (root == null) {
                 return;
             }
             postOrder(root.left);
             postOrder(root.right);
-            System.out.print(root.data+" ");
+            System.out.print(root.data + " ");
+        }
+
+        public static void LevelOrder(Node root) {
+            if (root == null) {
+                return;
+            }
+            Queue<Node> q = new LinkedList<>();
+            q.add(root);
+            q.add(null);
+
+            while (!q.isEmpty()) {
+                Node currNode = q.remove();
+                if (currNode == null) {
+                    System.out.println();
+                    if (q.isEmpty()) {
+                        break;
+                    } else {
+                        q.add(null);
+                    }
+                } else {
+                    System.out.print(currNode.data + " ");
+                    if (currNode.left != null) {
+                        q.add(currNode.left);
+                    }
+                    if (currNode.right != null) {
+                        q.add(currNode.right);
+                    }
+
+                }
+
+            }
+
         }
     }
 
@@ -67,8 +104,9 @@ public class BinaryTreees {
         Node root = tree.BuildTree(nodes);
         // System.out.print(root.data);
         // tree.PreOrder(root);
-        //tree.Inorder(root);
-        tree.postOrder(root);
+        // tree.Inorder(root);
+        // tree.postOrder(root);
+        tree.LevelOrder(root);
 
     }
 }
