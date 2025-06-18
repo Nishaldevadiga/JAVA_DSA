@@ -109,6 +109,15 @@ public class BinaryTreees {
             return height;
         }
     }
+    public static int count(Node root){
+        if(root ==null){
+            return 0;
+        }
+       int lcount=count(root.left);
+       int rcount=count(root.right);
+       int tcount=lcount+rcount+1;
+        return tcount;
+    }
 
     public static void main(String[] args) {
         int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
@@ -120,7 +129,13 @@ public class BinaryTreees {
         // tree.postOrder(root);
         //tree.LevelOrder(root);
        int result= tree.height(root);
-       System.out.print(result);
+       System.out.println(result);
+
+       System.out.println("------------------------------------------");
+       System.out.println(count(root));
+         
+
+
 
     }
 }
