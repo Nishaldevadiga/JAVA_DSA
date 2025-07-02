@@ -3,8 +3,6 @@ package BinaryTressP;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import Sliding_Window.longestsubstring;
-
 public class BinaryTreees {
 
     static class Node {
