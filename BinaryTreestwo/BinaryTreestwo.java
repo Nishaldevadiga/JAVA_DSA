@@ -28,6 +28,30 @@ public class BinaryTreestwo {
                 newNode.rightNode=BuildTree(nodes);
                 return newNode;
           }
+          public static int height(Node root){
+            if(root==null){
+                return 0;
+            }
+
+            int lefth=height(root.leftNode);
+            int righth=height(root.rightNode);
+            int height=Math.max(lefth, righth)+1;
+            return height;
+          }
+
+          public static int diameter(Node root){
+            if(root==null){
+                return 0;
+            }
+
+            int leftdia=diameter(root.leftNode);
+            int rightdia=diameter(root.rightNode);
+            int lefth=height(root.leftNode);
+            int righth=height(root.rightNode);
+            int selfdia=lefth+righth+1;
+
+            return Math.max(selfdia,Math.max(rightdia, selfdia));
+          }
     }
 
     public static void main(String args[]){
@@ -35,7 +59,9 @@ public class BinaryTreestwo {
             BinaryTree tree=new BinaryTree();
             Node root=tree.BuildTree(nodes);
             System.out.println(root.data);
-
+            System.out.println(tree.height(root));
+            System.out.println(tree.diameter(root));
+            
            
     }
 }
