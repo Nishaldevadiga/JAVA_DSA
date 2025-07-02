@@ -77,17 +77,59 @@ public class BinaryTreestwo {
 
             return new info(ht, dia);
         }
+
+        public static boolean isidentical(Node root,Node subroot){
+              if(root==null && subroot==null){
+                return true;
+              }else if(root==null || subroot==null || root.data!=subroot.data){
+                return false;
+              }
+
+              if(!(isidentical(root.leftNode, subroot.leftNode))){
+                return false;
+              }
+                if(!(isidentical(root.rightNode, subroot.rightNode))){
+                return false;
+              }
+
+              return true;
+        }
+
+        public static boolean isSubtree(Node root,Node subroot){
+            if(root==null){
+                return  false;
+            }
+            if(root.data==subroot.data){
+                if(isidentical(root,subroot)){
+                    return true;
+                }
+            }
+
+            boolean leftans=isSubtree(root.leftNode,subroot);
+            boolean rightans=isSubtree(root.rightNode,subroot);
+
+            return leftans || rightans;
+        }
     }
 
     public static void main(String args[]) {
-        int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
+       // int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
+       int[] rootNodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, -1};
         BinaryTree tree = new BinaryTree();
-        Node root = tree.BuildTree(nodes);
+        BinaryTree.idx = -1;
+        Node root = tree.BuildTree(rootNodes);
         // System.out.println(root.data);
         // System.out.println(tree.height(root));
         // System.out.println(tree.diameter(root));
 
-        System.out.println(tree.diameteropt(root).dia);
+        //System.out.println(tree.diameteropt(root).dia);
+        
+       // int nodess[] = {2, 4, -1, -1, 5,-1, -1,9};
+       int[] subNodes = {2, 4, -1, -1, 6, -1, -1};
+        BinaryTree.idx = -1;
+        Node subroot=tree.BuildTree(subNodes);
+       // System.out.print(subroot.data);
+        System.out.println(tree.isSubtree(root, subroot));
 
     }
 }
