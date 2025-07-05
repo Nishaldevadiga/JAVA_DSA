@@ -63,11 +63,11 @@ public class BinaryTrees {
             boolean isleft = getPath(root.leftNode, n, path);
             boolean isright = getPath(root.rightNode, n, path);
 
-            if(isleft||isright){
+            if (isleft || isright) {
                 return true;
             }
 
-            path.remove(path.size()-1);
+            path.remove(path.size() - 1);
             return false;
 
         }
@@ -83,15 +83,34 @@ public class BinaryTrees {
             getPath(root, n2, path2);
 
             // iterate through the path to find lca
-            int i=0;
-            for(;i<path1.size() && i<path2.size();i++){
-                if(path1.get(i)!=path2.get(i)){
+            int i = 0;
+            for (; i < path1.size() && i < path2.size(); i++) {
+                if (path1.get(i) != path2.get(i)) {
                     break;
                 }
             }
 
-            Node lca=path1.get(i-1);//last index
+            Node lca = path1.get(i - 1);// last index
             return lca;
+        }
+
+        //LCA optimized approach
+        public static Node LCA2(Node root, int n1,int n2){
+            if( root==null || root.data==n1|| root.data==n2){
+                return root;
+            }
+
+            Node leftLCA=LCA2(root.leftNode, n1, n2);
+            Node rightLCA=LCA2(root.rightNode, n1, n2);
+
+            if(leftLCA==null){
+                return rightLCA;
+            }
+            if(rightLCA==null){
+                return leftLCA;
+            }
+
+            return root;
         }
 
     }
@@ -104,8 +123,9 @@ public class BinaryTrees {
         Node root = t.BuildTree(nodes);
         // System.out.println(root.data);
         int level = 1, k = 3;
-        //t.printlevel(root, level, k);
-        System.out.print(t.LCA(root, 4, 6).data);
+        // t.printlevel(root, level, k);
+        //System.out.print(t.LCA(root, 4, 6).data);
+        System.out.print(t.LCA2(root, 4, 6).data);
 
     }
 
