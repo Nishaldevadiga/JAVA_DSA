@@ -48,17 +48,50 @@ public class BinaryTrees {
             printlevel(root.rightNode, level + 1, k);
 
         }
-        //lowest common ancestor
 
-        public static Node LCA(Node root, int n1,int n2){
-            //find the path
-            //creating two arraylist
-            ArrayList<Node> path1=new ArrayList<>();
-            ArrayList<Node> path2=new ArrayList<>();
+        public static boolean getPath(Node root, int n, ArrayList<Node> path) {
 
+            if (root == null) {
+                return false;
+            }
+            path.add(root);
 
+            if (root.data == n) {
+                return true;
+            }
 
-            //iterate through the path to find lca
+            boolean isleft = getPath(root.leftNode, n, path);
+            boolean isright = getPath(root.rightNode, n, path);
+
+            if(isleft||isright){
+                return true;
+            }
+
+            path.remove(path.size()-1);
+            return false;
+
+        }
+        // lowest common ancestor
+
+        public static Node LCA(Node root, int n1, int n2) {
+            // find the path
+            // creating two arraylist
+            ArrayList<Node> path1 = new ArrayList<>();
+            ArrayList<Node> path2 = new ArrayList<>();
+
+            getPath(root, n1, path1);
+            getPath(root, n2, path2);
+
+            // iterate through the path to find lca
+            int i=0;
+            for(;i<path1.size() && i<path2.size();i++){
+                if(path1.get(i)!=path2.get(i)){
+                    break;
+                }
+            }
+
+            Node lca=path1.get(i-1);//last index
+            return lca;
         }
 
     }
@@ -71,7 +104,8 @@ public class BinaryTrees {
         Node root = t.BuildTree(nodes);
         // System.out.println(root.data);
         int level = 1, k = 3;
-        t.printlevel(root, level, k);
+        //t.printlevel(root, level, k);
+        System.out.print(t.LCA(root, 4, 6).data);
 
     }
 
