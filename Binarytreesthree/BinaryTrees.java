@@ -159,14 +159,25 @@ public class BinaryTrees {
 
             if (leftdist == -1 && rightdist == -1) {
                 return -1;
-            } 
-
-            int max=Math.max(leftdist, rightdist);
-            if(max+1==k){
-                System.out.println("node ="+root.data);
             }
 
-            return max+1;
+            int max = Math.max(leftdist, rightdist);
+            if (max + 1 == k) {
+                System.out.println("node =" + root.data);
+            }
+
+            return max + 1;
+        }
+
+        public static int Transform(Node root) {
+            if (root == null) {
+                return 0;
+            }
+
+            int leftsum = Transform(root.leftNode);
+            int rightsum = Transform(root.rightNode);
+
+            return root.data + leftsum + rightsum;
         }
 
     }
@@ -183,7 +194,8 @@ public class BinaryTrees {
         // System.out.print(t.LCA(root, 4, 6).data);
         // System.out.print(t.LCA2(root, 4, 6).data);
         // System.out.println(t.distance(root, 4, 6));
-        t.distances(root, 2, 6);
+        // t.distances(root, 2, 6);
+        System.out.println(t.Transform(root));
 
     }
 
