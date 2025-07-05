@@ -94,19 +94,19 @@ public class BinaryTrees {
             return lca;
         }
 
-        //LCA optimized approach
-        public static Node LCA2(Node root, int n1,int n2){
-            if( root==null || root.data==n1|| root.data==n2){
+        // LCA optimized approach
+        public static Node LCA2(Node root, int n1, int n2) {
+            if (root == null || root.data == n1 || root.data == n2) {
                 return root;
             }
 
-            Node leftLCA=LCA2(root.leftNode, n1, n2);
-            Node rightLCA=LCA2(root.rightNode, n1, n2);
+            Node leftLCA = LCA2(root.leftNode, n1, n2);
+            Node rightLCA = LCA2(root.rightNode, n1, n2);
 
-            if(leftLCA==null){
+            if (leftLCA == null) {
                 return rightLCA;
             }
-            if(rightLCA==null){
+            if (rightLCA == null) {
                 return leftLCA;
             }
 
@@ -124,7 +124,7 @@ public class BinaryTrees {
         // System.out.println(root.data);
         int level = 1, k = 3;
         // t.printlevel(root, level, k);
-        //System.out.print(t.LCA(root, 4, 6).data);
+        // System.out.print(t.LCA(root, 4, 6).data);
         System.out.print(t.LCA2(root, 4, 6).data);
 
     }
