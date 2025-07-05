@@ -146,6 +146,29 @@ public class BinaryTrees {
 
         }
 
+        public static int distances(Node root, int k, int n) {
+            if (root == null) {
+                return -1;
+            }
+            if (root.data == n) {
+                return 0;
+            }
+
+            int leftdist = distances(root.leftNode, k, n);
+            int rightdist = distances(root.rightNode, k, n);
+
+            if (leftdist == -1 && rightdist == -1) {
+                return -1;
+            } 
+
+            int max=Math.max(leftdist, rightdist);
+            if(max+1==k){
+                System.out.println("node ="+root.data);
+            }
+
+            return max+1;
+        }
+
     }
 
     public static void main(String[] args) {
@@ -159,7 +182,8 @@ public class BinaryTrees {
         // t.printlevel(root, level, k);
         // System.out.print(t.LCA(root, 4, 6).data);
         // System.out.print(t.LCA2(root, 4, 6).data);
-        System.out.println(t.distance(root, 4, 6));
+        // System.out.println(t.distance(root, 4, 6));
+        t.distances(root, 2, 6);
 
     }
 
