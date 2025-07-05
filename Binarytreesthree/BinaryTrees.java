@@ -2,6 +2,8 @@ package Binarytreesthree;
 
 import java.util.ArrayList;
 
+import Stacks.reversestr;
+
 public class BinaryTrees {
 
     static class Node {
@@ -113,6 +115,39 @@ public class BinaryTrees {
             return root;
         }
 
+        public static int lcadist(Node root, int n) {
+
+            if(root==null){
+                return -1;
+            }
+            if(root.data==n){
+                return 0;
+            }
+
+            int ledtdist=lcadist(root.leftNode, n);
+            int rightdist=lcadist(root.rightNode, n);
+
+            if(ledtdist==-1 && rightdist==-1){
+                return -1;
+            }else if(ledtdist==-1){
+                return rightdist+1;
+            }else{
+                return ledtdist+1;
+            }
+
+        }
+
+        public static int distance(Node root, int n1, int n2) {
+
+            Node lca = LCA2(root, n1, n2);
+
+            int dist1 = lcadist(lca, n1);
+            int dist2 = lcadist(lca, n2);
+
+            return dist1 + dist2;
+
+        }
+
     }
 
     public static void main(String[] args) {
@@ -125,7 +160,8 @@ public class BinaryTrees {
         int level = 1, k = 3;
         // t.printlevel(root, level, k);
         // System.out.print(t.LCA(root, 4, 6).data);
-        System.out.print(t.LCA2(root, 4, 6).data);
+        // System.out.print(t.LCA2(root, 4, 6).data);
+        System.out.println(t.distance(root, 4, 6));
 
     }
 
