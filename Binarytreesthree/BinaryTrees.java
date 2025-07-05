@@ -174,10 +174,14 @@ public class BinaryTrees {
                 return 0;
             }
 
-            int leftsum = Transform(root.leftNode);
-            int rightsum = Transform(root.rightNode);
+            int leftchild = Transform(root.leftNode);
+            int rightchild = Transform(root.rightNode);
 
-            return root.data + leftsum + rightsum;
+            int oldvalue=root.data;
+
+            root.data=leftchild+rightchild;
+
+            return root.data + oldvalue;
         }
 
     }
@@ -196,6 +200,7 @@ public class BinaryTrees {
         // System.out.println(t.distance(root, 4, 6));
         // t.distances(root, 2, 6);
         System.out.println(t.Transform(root));
+       
 
     }
 
