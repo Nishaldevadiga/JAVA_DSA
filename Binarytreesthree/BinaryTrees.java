@@ -2,8 +2,6 @@ package Binarytreesthree;
 
 import java.util.ArrayList;
 
-import Stacks.reversestr;
-
 public class BinaryTrees {
 
     static class Node {
@@ -117,22 +115,22 @@ public class BinaryTrees {
 
         public static int lcadist(Node root, int n) {
 
-            if(root==null){
+            if (root == null) {
                 return -1;
             }
-            if(root.data==n){
+            if (root.data == n) {
                 return 0;
             }
 
-            int ledtdist=lcadist(root.leftNode, n);
-            int rightdist=lcadist(root.rightNode, n);
+            int ledtdist = lcadist(root.leftNode, n);
+            int rightdist = lcadist(root.rightNode, n);
 
-            if(ledtdist==-1 && rightdist==-1){
+            if (ledtdist == -1 && rightdist == -1) {
                 return -1;
-            }else if(ledtdist==-1){
-                return rightdist+1;
-            }else{
-                return ledtdist+1;
+            } else if (ledtdist == -1) {
+                return rightdist + 1;
+            } else {
+                return ledtdist + 1;
             }
 
         }
