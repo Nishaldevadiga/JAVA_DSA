@@ -13,7 +13,8 @@ public class BST {
             this.right = null;
         }
     }
-   //Building a Binary search tree
+
+    // Building a Binary search tree
     public static Node insert(Node root, int val) {
         if (root == null) {
             root = new Node(val);
@@ -26,6 +27,23 @@ public class BST {
             root.right = insert(root.right, val);
         }
         return root;
+    }
+
+    public static boolean search(Node root, int key) {
+
+        if (root == null) {
+            return false;
+        }
+
+        if (root.data == key) {
+            return true;
+        }
+
+        if (root.data > key) {
+            return search(root.left, key);
+        } else {
+            return search(root.right, key);
+        }
     }
 
     public static void inorder(Node root) {
@@ -45,6 +63,13 @@ public class BST {
             root = insert(root, val[i]);
         }
         inorder(root);
+
+        boolean result = search(root, 9);
+        if (result == true) {
+            System.out.println("Found");
+        } else {
+            System.out.println("Not found");
+        }
 
     }
 
