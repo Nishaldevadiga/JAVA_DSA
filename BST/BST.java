@@ -94,26 +94,44 @@ public class BST {
         return root;
     }
 
+    public static void printinrange(Node root, int v1, int v2) {
+        if (root == null) {
+            return;
+        }
+
+        if (root.data >= v1 && root.data <= v2) {
+            printinrange(root.left, v1, v2);
+            System.out.println(root.data + " ");
+            printinrange(root.right, v1, v2);
+        } else if (root.data < v1) {
+            printinrange(root.right, v1, v2);
+        } else {
+            printinrange(root.left, v1, v2);
+        }
+    }
+
     public static void main(String[] args) {
         int val[] = { 5, 1, 3, 4, 2, 7 };
         Node root = null;
         for (int i = 0; i < val.length; i++) {
             root = insert(root, val[i]);
         }
-        inorder(root);
+        // inorder(root);
 
-        boolean result = search(root, 9);
-        if (result == true) {
-            System.out.println("Found");
-        } else {
-            System.out.println("Not found");
-        }
+        // boolean result = search(root, 9);
+        // if (result == true) {
+        // System.out.println("Found");
+        // } else {
+        // System.out.println("Not found");
+        // }
 
-        delete(root, 2);
+        // delete(root, 2);
 
-        System.out.println();
+        // System.out.println();
 
-        inorder(root);
+        // inorder(root);
+
+        printinrange(root, 1, 4);
 
     }
 
