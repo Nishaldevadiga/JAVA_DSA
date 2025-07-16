@@ -56,6 +56,44 @@ public class BST {
         inorder(root.right);
     }
 
+    public static Node delete(Node root, int val) {
+        if (root.data > val) {
+            root.left = delete(root.left, val);
+        } else if (root.data < val) {
+            root.right = delete(root.right, val);
+        } else {
+            // root==vall
+            // case 1: no child
+            if (root.right == null && root.left == null) {
+                return null;
+            }
+
+            // case 2: single child
+            if (root.right == null) {
+                return root.left;
+            }
+
+            if (root.left == null) {
+                return root.right;
+            }
+
+            // case 3: two child
+            Node IS = inorderIS(root.right);
+            root.data = IS.data;
+            root.right = delete(root.right, IS.data);
+
+        }
+        return root;
+    }
+
+    public static Node inorderIS(Node root) {
+        while (root.left != null) {
+            root = root.left;
+        }
+
+        return root;
+    }
+
     public static void main(String[] args) {
         int val[] = { 5, 1, 3, 4, 2, 7 };
         Node root = null;
@@ -70,6 +108,12 @@ public class BST {
         } else {
             System.out.println("Not found");
         }
+
+        delete(root, 2);
+
+        System.out.println();
+
+        inorder(root);
 
     }
 
