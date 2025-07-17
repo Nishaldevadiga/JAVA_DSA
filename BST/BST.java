@@ -1,5 +1,7 @@
 package BST;
 
+import java.util.ArrayList;
+
 public class BST {
 
     static class Node {
@@ -110,6 +112,29 @@ public class BST {
         }
     }
 
+    public static void printpath(ArrayList<Integer> Path) {
+        for (int i = 0; i < Path.size(); i++) {
+            System.out.print(Path.get(i) + " ");
+        }
+        System.out.println();
+    }
+
+    public static void roottoleaf(Node root, ArrayList<Integer> path) {
+
+        if (root == null) {
+            return;
+        }
+        path.add(root.data);
+        if (root.right == null && root.left == null) {
+            printpath(path);
+        } else {
+            roottoleaf(root.left, path);
+            roottoleaf(root.right, path);
+        }
+        path.remove(path.size() - 1);
+
+    }
+
     public static void main(String[] args) {
         int val[] = { 5, 1, 3, 4, 2, 7 };
         Node root = null;
@@ -131,7 +156,8 @@ public class BST {
 
         // inorder(root);
 
-        printinrange(root, 1, 4);
+        // printinrange(root, 1, 4);
+        roottoleaf(root, new ArrayList<Integer>());
 
     }
 
