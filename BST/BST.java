@@ -150,6 +150,17 @@ public class BST {
         isValid(root.right, root, max);
     }
 
+    public static Node mirror(Node root){
+        if(root==null){
+            return null;
+        }
+        Node leftmr=mirror(root.left);
+        Node rightmr=mirror(root.right);
+        root.left=rightmr;
+        root.right=leftmr;
+        return root;
+    }
+
     public static void main(String[] args) {
         int val[] = { 5, 1, 3, 4, 2, 7 };
         Node root = null;
@@ -173,7 +184,7 @@ public class BST {
 
         // printinrange(root, 1, 4);
        // roottoleaf(root, new ArrayList<Integer>());
-       System.out.println(isValid(root, null, null));
+      // System.out.println(isValid(root, null, null));
 
 
     }
