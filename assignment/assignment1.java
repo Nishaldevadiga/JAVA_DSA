@@ -22,9 +22,10 @@ public class assignment1 {
                     System.out.println("Not a perfect square number");
                 }
             }
-            System.out.println("Do you want to try again?: Yes or No");
+            System.out.println("Do you want to try again?: yes or no");
+            sc.nextLine();
             String msg = sc.nextLine();
-            if (!msg.equalsIgnoreCase("Yes")) {
+            if (!msg.equalsIgnoreCase("yes")) {
                 isContinue = false;
             }
         }
